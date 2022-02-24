@@ -16,46 +16,6 @@
  */
 package org.apache.dubbo.common;
 
-import org.apache.dubbo.common.config.Configuration;
-import org.apache.dubbo.common.config.InmemoryConfiguration;
-import org.apache.dubbo.common.constants.CommonConstants;
-import org.apache.dubbo.common.constants.RemotingConstants;
-import org.apache.dubbo.common.url.component.PathURLAddress;
-import org.apache.dubbo.common.url.component.ServiceConfigURL;
-import org.apache.dubbo.common.url.component.URLAddress;
-import org.apache.dubbo.common.url.component.URLParam;
-import org.apache.dubbo.common.url.component.URLPlainParam;
-import org.apache.dubbo.common.utils.ArrayUtils;
-import org.apache.dubbo.common.utils.CollectionUtils;
-import org.apache.dubbo.common.utils.LRUCache;
-import org.apache.dubbo.common.utils.NetUtils;
-import org.apache.dubbo.common.utils.StringUtils;
-import org.apache.dubbo.rpc.model.ApplicationModel;
-import org.apache.dubbo.rpc.model.FrameworkModel;
-import org.apache.dubbo.rpc.model.ModuleModel;
-import org.apache.dubbo.rpc.model.ScopeModel;
-import org.apache.dubbo.rpc.model.ScopeModelUtil;
-import org.apache.dubbo.rpc.model.ServiceModel;
-
-import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.net.InetSocketAddress;
-import java.net.MalformedURLException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.TreeMap;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Predicate;
-
 import static org.apache.dubbo.common.BaseServiceMetadata.COLON_SEPARATOR;
 import static org.apache.dubbo.common.constants.CommonConstants.ANYHOST_KEY;
 import static org.apache.dubbo.common.constants.CommonConstants.ANYHOST_VALUE;
@@ -76,6 +36,46 @@ import static org.apache.dubbo.common.constants.CommonConstants.VERSION_KEY;
 import static org.apache.dubbo.common.constants.RegistryConstants.CATEGORY_KEY;
 import static org.apache.dubbo.common.convert.Converter.convertIfPossible;
 import static org.apache.dubbo.common.utils.StringUtils.isBlank;
+
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Predicate;
+
+import org.apache.dubbo.common.config.Configuration;
+import org.apache.dubbo.common.config.InmemoryConfiguration;
+import org.apache.dubbo.common.constants.CommonConstants;
+import org.apache.dubbo.common.constants.RemotingConstants;
+import org.apache.dubbo.common.url.component.PathURLAddress;
+import org.apache.dubbo.common.url.component.ServiceConfigURL;
+import org.apache.dubbo.common.url.component.URLAddress;
+import org.apache.dubbo.common.url.component.URLParam;
+import org.apache.dubbo.common.url.component.URLPlainParam;
+import org.apache.dubbo.common.utils.ArrayUtils;
+import org.apache.dubbo.common.utils.CollectionUtils;
+import org.apache.dubbo.common.utils.LRUCache;
+import org.apache.dubbo.common.utils.NetUtils;
+import org.apache.dubbo.common.utils.StringUtils;
+import org.apache.dubbo.rpc.model.ApplicationModel;
+import org.apache.dubbo.rpc.model.FrameworkModel;
+import org.apache.dubbo.rpc.model.ModuleModel;
+import org.apache.dubbo.rpc.model.ScopeModel;
+import org.apache.dubbo.rpc.model.ScopeModelUtil;
+import org.apache.dubbo.rpc.model.ServiceModel;
 
 /**
  * URL - Uniform Resource Locator (Immutable, ThreadSafe)
@@ -109,8 +109,7 @@ import static org.apache.dubbo.common.utils.StringUtils.isBlank;
  * @see java.net.URL
  * @see java.net.URI
  */
-public /*final**/
-class URL implements Serializable {
+public /*final**/class URL implements Serializable {
 
     private static final long serialVersionUID = -1985165475234910535L;
 
